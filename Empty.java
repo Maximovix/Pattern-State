@@ -10,30 +10,30 @@ public class Empty extends FuelSupply {
 
     @Override
     public String notifyFuelSupply() {
-        return "Запас топлива пуст, необходимо заправиться";
+        return "Запас топлива пуст, необходимо заправиться.";
     }
 
     @Override
     public String notFullFefueling() {
         refill = refill + 30;
         fuelIndicator.changeState(new Enough(fuelIndicator,refill));
-        return "Неполная заправка. Можно немного прокатиться";
+        return "Неполная заправка. Можно немного прокатиться.";
     }
 
     @Override
     public String FullFefueling() {
         refill = 100;
         fuelIndicator.changeState(new Full(fuelIndicator,refill));
-        return "Полная заправка. Можно отправиться куда подальше";
+        return "Полная заправка. Можно отправиться куда подальше.";
     }
 
     @Override
     public String notFarTrip() {
-        return "Поездка невозможна";
+        return "Поездка невозможна.";
     }
 
     @Override
     public String FarTrip() {
-        return "Поездка невозможна";
+        return "Поездка невозможна.";
     }
 }
