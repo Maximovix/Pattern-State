@@ -15,14 +15,16 @@ public class Empty extends FuelSupply {
 
     @Override
     public String notFullFefueling() {
-        refill = refill + 30;
-        fuelIndicator.changeState(new Enough(fuelIndicator,refill));
+        refill = refill + 34;
+        fuelIndicator.setIndicatorValue(refill);
+        fuelIndicator.changeState(new Enough(fuelIndicator, refill));
         return "Неполная заправка. Можно немного прокатиться.";
     }
 
     @Override
-    public String FullFefueling() {
+    public String fullFefueling() {
         refill = 100;
+        fuelIndicator.setIndicatorValue(refill);
         fuelIndicator.changeState(new Full(fuelIndicator,refill));
         return "Полная заправка. Можно отправиться куда подальше.";
     }
@@ -33,7 +35,7 @@ public class Empty extends FuelSupply {
     }
 
     @Override
-    public String FarTrip() {
+    public String farTrip() {
         return "Поездка невозможна.";
     }
 }

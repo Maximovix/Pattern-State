@@ -25,12 +25,12 @@ public class GUI {
         JPanel indicator = new JPanel();
         JLabel lebelIndicator = new JLabel("Индикатор топлива");
         JProgressBar progress = new JProgressBar();
-        progress.setValue(63);
+        progress.setValue(0);
         indicator.add(lebelIndicator);
         indicator.add(progress);
 
         JPanel buttons = new JPanel();
-        JButton notFullFefueling = new JButton("Не полная заправка");
+        JButton notFullFefueling = new JButton("Неполная заправка");
         JButton fullFefueling = new JButton("Полная заправка");
         JButton notFarTrip = new JButton("Не большая поездка");
         JButton farTrip = new JButton("Дальняя поездка");
@@ -38,6 +38,18 @@ public class GUI {
         buttons.add(fullFefueling);
         buttons.add(notFarTrip);
         buttons.add(farTrip);
+
+        notFullFefueling.addActionListener(e -> progress.setValue(fuelIndicator.getIndicatorValue()));
+        notFullFefueling.addActionListener(e -> textField.setText(fuelIndicator.getState().notFullFefueling()));
+
+        fullFefueling.addActionListener(e -> progress.setValue(fuelIndicator.getIndicatorValue()));
+        fullFefueling.addActionListener(e -> textField.setText(fuelIndicator.getState().fullFefueling()));
+
+        notFarTrip.addActionListener(e -> progress.setValue(fuelIndicator.getIndicatorValue()));
+        notFarTrip.addActionListener(e -> textField.setText(fuelIndicator.getState().notFarTrip()));
+
+        farTrip.addActionListener(e -> progress.setValue(fuelIndicator.getIndicatorValue()));
+        farTrip.addActionListener(e -> textField.setText(fuelIndicator.getState().farTrip()));
 
         context.add(text, BorderLayout.NORTH);
         context.add(indicator, BorderLayout.CENTER);

@@ -19,20 +19,22 @@ public class Full extends FuelSupply {
     }
 
     @Override
-    public String FullFefueling() {
+    public String fullFefueling() {
         return "В полной заправке нет необходимости.";
     }
 
     @Override
     public String notFarTrip() {
-        refill = refill - 30;
+        refill = refill - 34;
+        fuelIndicator.setIndicatorValue(refill);
         fuelIndicator.changeState(new Enough(fuelIndicator, refill));
-        return "В небольшой поездке израсходовалось чуть-чуть топлива.";
+        return "В небольшой поездке израсходовалось немного топливо.";
     }
 
     @Override
-    public String FarTrip() {
+    public String farTrip() {
         refill = 0;
+        fuelIndicator.setIndicatorValue(refill);
         fuelIndicator.changeState(new Empty(fuelIndicator, refill));
         return "В большой поездке израсходовалось все топливо.";
     }

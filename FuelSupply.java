@@ -9,7 +9,7 @@ public abstract class FuelSupply {
 
     public abstract String notifyFuelSupply();
     public abstract String notFullFefueling();
-    public abstract String FullFefueling();
+    public abstract String fullFefueling();
     public abstract String notFarTrip();
-    public abstract String FarTrip();
+    public abstract String farTrip();
 }
